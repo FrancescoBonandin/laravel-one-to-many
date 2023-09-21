@@ -7,22 +7,19 @@
         <div class="col">
 
             <h1 class="text-center text-success">
-                Sei nello Show di {{$project->title}}!
+                Sei nello Show di {{$type->type_name}}!
             </h1>
 
             <div class="card">
+
                 <div class="card-body">
 
                     <div>
-                        Title:{{$project->title}}
+                        id:{{$type->id}}
                     </div>
 
                     <div>
-                        Slug:{{$project->slug}}
-                    </div>
-
-                    <div>
-                        Description:{{$project->description}}
+                        Title:{{$type->type_name}}
                     </div>
 
                 </div>

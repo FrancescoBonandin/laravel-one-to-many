@@ -25,9 +25,8 @@ class TypeController extends Controller
     public function create()
     {
 
-        $types=Type::findOrFail();
 
-        return view('types.show',compact('type'));
+        return view('types.create');
     }
 
     /**
@@ -36,6 +35,21 @@ class TypeController extends Controller
     public function store(StoreTypeRequest $request)
     {
         //
+        
+        $formData=$request->validated();
+
+        $type=Type::create([
+            'type_name'=> $formData['type_name'],
+        ]);
+
+        // $project=new Project();
+        // $project->title=$request->input('title');
+        // $project->slug=str()->slug($request->input('title'));
+        // $project->description=$request->input('description');
+        // $project->save();
+
+
+        return redirect()->route('admin.types.index');
     }
 
     /**
@@ -43,7 +57,8 @@ class TypeController extends Controller
      */
     public function show(Type $type)
     {
-        //
+
+        return view('types.show',compact('type'));
     }
 
     /**

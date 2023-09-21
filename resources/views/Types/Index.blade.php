@@ -108,7 +108,7 @@
             
                     </table>
 
-                    <a href="{{route('admin.projects.create')}}">
+                    <a href="{{route('admin.types.create')}}">
                     
                         <button>
                             + Nuovo Progetto
