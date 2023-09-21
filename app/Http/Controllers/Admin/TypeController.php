@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Models\Type;
 use App\Http\Requests\StoreTypeRequest;
 use App\Http\Requests\UpdateTypeRequest;
+use App\Http\Controllers\Controller;
 
 class TypeController extends Controller
 {
@@ -13,7 +14,9 @@ class TypeController extends Controller
      */
     public function index()
     {
-        //
+        $types=Type::all();
+
+        return view('types.index',compact('types'));
     }
 
     /**
@@ -21,7 +24,10 @@ class TypeController extends Controller
      */
     public function create()
     {
-        //
+
+        $types=Type::findOrFail();
+
+        return view('types.show',compact('type'));
     }
 
     /**

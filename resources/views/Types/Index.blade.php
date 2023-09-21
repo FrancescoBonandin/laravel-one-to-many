@@ -24,12 +24,9 @@
                                 </th>
                      
                                 <th scope="col">
-                                    slug
+                                    projects
                                 </th>
                      
-                                <th scope="col">
-                                    Description
-                                </th>
                 
                         
                             </tr>
@@ -38,40 +35,41 @@
                 
                         <tbody>
             
-                            @foreach ($projects as $project)
+                            @foreach ($types as $type)
                             <tr>
             
                                 <th scope="row">
-                                    {{$project->id}}
+                                    {{$type->id}}
                                 </th>                    
                                 
                                 <td>
-                                    {{$project->title}}
+                                    {{$type->type_name}}
                                 </td>
 
-                                <td>
-                                    {{$project->slug}}
-                                </td>
-
-                                <td>
-                                    {{$project->description}}
-                                </td>
-                               
                                 <td>
                                     
-                                    @if ($project->type)
+                                    @foreach ( $type->projects as $project)
 
-                                        {{$project->type->type_name}}
+                                        @if (($type->projects))
 
-                                    @else
-                                        -
-                                    @endif   
+                                            {{$project->title}}, 
 
+                                        @else
+
+                                            {{$project->title}}
+
+                                        @endif
+
+                                    @endforeach
                                 </td>
+
+                              
+
+            
 
                                 <td>
 
-                                    <a href="{{route('admin.projects.show',['project'=>$project])}}">
+                                    <a href="{{route('admin.types.show',['type'=>$type])}}">
                                   
                                         <button>
                                             Show
@@ -79,7 +77,7 @@
 
                                     </a>
 
-                                    <a href="{{route('admin.projects.edit',['project'=>$project])}}">
+                                    <a href="{{route('admin.types.edit',['type'=>$type])}}">
 
                                         <button>
                                             Edit
@@ -87,7 +85,7 @@
 
                                     </a>
 
-                                    <form onsubmit="return confirm('sei sicuro?')" action="{{route('admin.projects.destroy',['project'=>$project])}}" method="POST">
+                                    <form onsubmit="return confirm('sei sicuro?')" action="{{route('admin.types.destroy',['type'=>$type])}}" method="POST">
                                         @csrf
                                         @method('Delete')
 

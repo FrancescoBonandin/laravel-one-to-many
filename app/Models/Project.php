@@ -14,10 +14,12 @@ class Project extends Model
         'title',
         'slug',
         'description',
+        
 
     ];
 
     public function type() {
         return $this->belongsTo(Type::class);
+        
     }
 }
