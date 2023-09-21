@@ -22,6 +22,17 @@
                         Title:{{$type->type_name}}
                     </div>
 
+                    <div>
+                        projects:
+                        
+                        @foreach($type->projects as $project)
+
+                            {{ $project->title }},
+
+                        @endforeach
+
+                    </div>
+
                 </div>
             </div>
         </div>

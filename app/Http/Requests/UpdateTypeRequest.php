@@ -3,7 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-
+use Illuminate\Support\Facades\Auth;
 class UpdateTypeRequest extends FormRequest
 {
     /**
@@ -11,7 +11,7 @@ class UpdateTypeRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return Auth::check();
     }
 
     /**
@@ -22,7 +22,7 @@ class UpdateTypeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'type_name'=>'min:0',
         ];
     }
 }

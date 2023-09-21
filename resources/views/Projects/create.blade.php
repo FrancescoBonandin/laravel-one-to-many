@@ -52,8 +52,28 @@
                     </div>
                 @enderror   
 
+                <div class="mb-3">
+
+                    <label for="type_id" class="form-label">Categoria</label>
+                    <select class="form-select" id="type_id" name="type_id">
+                        <option value="">Seleziona una categoria...</option>
+                        @foreach ($types as $type)
+                            <option
+                                {{-- Il value sarà l'ID della categoria --}}
+                                value="{{ $type->id }}"
+
+                                {{-- Aggiungo l'attributo selected sulla option che era stata precedentemente selezionata --}}
+                                @if (old('type_id', $type->id) == $type->id)
+                                    selected
+                                @endif
+                                {{-- {{ old('type_id') == $type->id ? 'selected' : '' }} --}}
+                                >
+                                {{ $type->type_name }}
+                            </option>
+                        @endforeach
+                    </select>
                 <div>
-                    <button type="submit" class="btn btn-success w-100">
+                    <button type="submit" class=" mt-4 btn btn-success w-100">
                         + Aggiungi
                     </button>
                 </div>
