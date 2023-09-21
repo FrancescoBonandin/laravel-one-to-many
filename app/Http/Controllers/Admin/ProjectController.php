@@ -42,7 +42,7 @@ class ProjectController extends Controller
         $formData=$request->validated();
         $slug=str()->slug($formData['title']);
 
-        $project=Project::create([
+        Project::create([
             'title'=> $formData['title'],
             'slug'=> $slug,
             'description'=> $formData['description'],

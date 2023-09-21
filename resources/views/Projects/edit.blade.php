@@ -59,12 +59,12 @@
 
                 <div class="mb-3">
 
-                    <label for="type_id" class="form-label">Categoria</label>
+                    <label for="type_id" class="form-label">tipo</label>
                     <select class="form-select" id="type_id" name="type_id">
-                        <option value="">Seleziona una categoria...</option>
+                        <option value="">Seleziona un tipo...</option>
                         @foreach ($types as $type)
                             <option
-                                {{-- Il value sarà l'ID della categoria --}}
+                                {{-- Il value sarà l'ID della tipo --}}
                                 value="{{ $type->id }}"
 
                                 {{-- Aggiungo l'attributo selected sulla option che era stata precedentemente selezionata --}}

@@ -111,7 +111,7 @@
                     <a href="{{route('admin.types.create')}}">
                     
                         <button>
-                            + Nuovo Progetto
+                            + Nuovo Tipo
                         </button>
 
                     </a>
