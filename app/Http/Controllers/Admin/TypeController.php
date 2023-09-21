@@ -66,7 +66,7 @@ class TypeController extends Controller
      */
     public function edit(Type $type)
     {
-        //
+        return view('types.edit',compact('type'));
     }
 
     /**
@@ -74,7 +74,22 @@ class TypeController extends Controller
      */
     public function update(UpdateTypeRequest $request, Type $type)
     {
-        //
+         //
+        
+         $formData=$request->validated();
+
+         $type->update([
+             'type_name'=> $formData['type_name'],
+         ]);
+ 
+         // $project=new Project();
+         // $project->title=$request->input('title');
+         // $project->slug=str()->slug($request->input('title'));
+         // $project->description=$request->input('description');
+         // $project->save();
+ 
+ 
+         return redirect()->route('admin.types.index');
     }
 
     /**
@@ -82,6 +97,8 @@ class TypeController extends Controller
      */
     public function destroy(Type $type)
     {
-        //
+        $type=Type::destroy($type->id);
+        
+        return redirect()->route('admin.types.index');
     }
 }
