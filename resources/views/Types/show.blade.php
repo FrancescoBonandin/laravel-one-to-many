@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('page-title', 'Show')
+@section('page-title', 'Show '{{$type->type_name}})
 
 @section('main-content')
     <div class="row">
@@ -25,11 +25,20 @@
                     <div>
                         projects:
                         
-                        @foreach($type->projects as $project)
+                        @forelse ($type->projects as $project)
 
-                            {{ $project->title }},
+                        <a href="{{route('admin.projects.show',['project'=>$project])}}"> {{ $project->title }} </a>
 
-                        @endforeach
+                        @if ((!$loop->last))
+                        , 
+
+                        @endif
+                        
+                    @empty
+
+                        -
+                        
+                    @endforelse 
 
                     </div>
 

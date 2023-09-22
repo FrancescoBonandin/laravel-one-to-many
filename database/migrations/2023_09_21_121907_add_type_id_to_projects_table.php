@@ -19,6 +19,7 @@ return new class extends Migration
                     -> on('types')
                     ->onUpdate('cascade')
                     ->onDelete('set null');
+                    
         });
     }
 

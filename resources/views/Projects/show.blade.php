@@ -25,6 +25,11 @@
                         Description:{{$project->description}}
                     </div>
 
+                    <div>
+                        type:
+                        <a href="{{route('admin.types.show',['type'=>$project->type])}}">{{$project->type->type_name}}</a>
+                    </div>
+
                 </div>
             </div>
         </div>

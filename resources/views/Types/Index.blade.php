@@ -8,7 +8,7 @@
             <div class="card">
                 <div class="card-body">
                     <h1 class="text-center text-success">
-                        Sei nell'index!
+                        Sei nell'index dei types!
                     </h1>
 
                     <table class="table">
@@ -48,19 +48,21 @@
 
                                 <td>
                                     
-                                    @foreach ( $type->projects as $project)
+                                    @forelse ($type->projects as $project)
 
-                                        @if (($type->projects))
+                                        <a href="{{route('admin.projects.show',['project'=>$project])}}"> {{ $project->title }} </a>
 
-                                            {{$project->title}}, 
-
-                                        @else
-
-                                            {{$project->title}}
+                                        @if ((!$loop->last))
+                                        ,
 
                                         @endif
+                                        
+                                    @empty
 
-                                    @endforeach
+                                        -
+                                        
+                                    @endforelse 
+
                                 </td>
 
                               

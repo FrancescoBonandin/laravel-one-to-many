@@ -8,7 +8,7 @@
             <div class="card">
                 <div class="card-body">
                     <h1 class="text-center text-success">
-                        Sei nell'index!
+                        Sei nell'index dei projects!
                     </h1>
 
                     <table class="table">
@@ -29,6 +29,10 @@
                      
                                 <th scope="col">
                                     Description
+                                </th>
+
+                                <th scope="col">
+                                    Type
                                 </th>
                 
                         
@@ -61,11 +65,16 @@
                                     
                                     @if ($project->type)
 
-                                        {{$project->type->type_name}}
+                                    
+                                  
+                                        <a href="{{route('admin.types.show',['type'=>$project->type])}}">{{$project->type->type_name}}</a>
+                                    
 
                                     @else
                                         -
                                     @endif   
+
+                                    
 
                                 </td>
 
